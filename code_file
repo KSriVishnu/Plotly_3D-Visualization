@@ -1,0 +1,16 @@
+import plotly.graph_objs as go
+import numpy as np
+x = clustering_pca_kmeans['component 1']
+y = clustering_pca_kmeans['component 2']
+z = clustering_pca_kmeans['component 3']
+trace = go.Scatter3d(
+   x = x, y = y, z = z,mode = 'markers', marker = dict(
+      size = 12,
+      color = clustering_pca_kmeans['segment K-means PCA'], # set color to an array/list of desired values
+      colorscale = 'Viridis'
+      )
+   )
+data = [trace]
+plotly.offline.plot(
+   { "data": data,"layout": go.Layout(title = "3D Scatter plot")}, auto_open = True)
+iplot(fig)
